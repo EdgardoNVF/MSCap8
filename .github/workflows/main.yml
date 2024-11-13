@@ -35,15 +35,15 @@ jobs:
 
       # Construccion de imagenes
       - name: Build image Client
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appmicro:client .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm:client .
         working-directory: MicroserviceClient
         
       - name: Build image config
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appmicro:config .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm:config .
         working-directory: MicroserviceConfig
         
       - name: Build image eureka
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appmicro:eureka .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm:eureka .
         working-directory: MicroserviceEureka
 
 
@@ -59,7 +59,7 @@ jobs:
       #Envio de imagenes a docker hub
       - name: Push Docker image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/appmicro:client
-          docker push ${{ secrets.DOCKER_USERNAME }}/appmicro:config
-          docker push ${{ secrets.DOCKER_USERNAME }}/appmicro:eureka
+          docker push ${{ secrets.DOCKER_USERNAME }}/appm:client
+          docker push ${{ secrets.DOCKER_USERNAME }}/appm:config
+          docker push ${{ secrets.DOCKER_USERNAME }}/appm:eureka
           
